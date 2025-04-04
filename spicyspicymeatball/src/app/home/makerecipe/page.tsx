@@ -1,4 +1,55 @@
-import Link from "next/link";
+"use client";
+import { useState, useEffect } from "react";
+import uploadData from "src/app/api/upload-stuff/upload";
+import { useRouter } from "next/navigation";
+
+export default function UploadForm() {
+  const [recipename, setRecipename] = useState("");
+  const [ingredients, setIngredients] = useState("");
+  const [directions, setDirections] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    // This hook will run after the component is mounted on the client side
+    // Any code that interacts with the browser (e.g., navigation, DOM manipulation) should go here
+  }, []); // Empty dependency array ensures it runs only once, after initial render
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const result = await uploadData(recipename, ingredients, directions);
+    console.log(result); // Handle the result as needed
+    router.push("/"); // Redirect to the home page after submission, not needed but good to have as example
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={recipename}
+        onChange={(e) => setRecipename(e.target.value)}
+        placeholder="recipename"
+        required
+      />
+      <input
+        value={ingredients}
+        onChange={(e) => setIngredients(e.target.value)}
+        placeholder="ingredients"
+        required
+      />
+      <input
+      value={directions}
+      onChange={(e) => setDirections(e.target.value)}
+      placeholder="directions"
+      required
+      />
+      <button type="submit">Upload</button>
+    </form>
+  );
+}
+
+
+
+/*import Link from "next/link";
 import QuitButton from "~/app/quitbutton";
 import DoneButton from "./donebutton";
 
@@ -27,10 +78,6 @@ export default function HomePage() {
           <input type="radio" name="rating-1" className="mask mask-star" />
           <input type="radio" name="rating-1" className="mask mask-star" />
         </div>
-        <DoneButton>
-        </DoneButton>
-        <QuitButton>
-        </QuitButton>
       </div>
     </main>
   );

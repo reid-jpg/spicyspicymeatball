@@ -48,6 +48,7 @@ import {
   varchar,
   integer
 } from "drizzle-orm/pg-core";
+import { title } from "process";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -56,7 +57,7 @@ import {
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */ 
 export const createTable = pgTableCreator((name) => `spicyspicymeatball${name}`);
-
+/*
 export const images = createTable(
   "image",
   {
@@ -76,13 +77,15 @@ export const images = createTable(
   (example) => ({
     nameIndex: index("name_idx").on(example.name),
   })
-);
+);*/
 
 export const posts = createTable(
   "post",
   {
     id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
-    content: varchar("content", { length: 256 }),
+    recipename: varchar("recipename", { length: 256 }),
+    ingredients: varchar("ingredients", { length: 256 }),
+    directions: varchar("directions", { length: 256 }),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
