@@ -6,7 +6,7 @@ export default function HomePage() {
     <main>
       <div>
         <h1 className="bg-[#FF5032] font-serif flex justify-center text-7xl">
-          THAT'S A SPICY MEATBALL!
+          THATS A SPICY MEATBALL!
         </h1>
         <div className="bg-[#FA946E] flex w-full">
           <img className=" w-2/5 rounded-full" src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2023/02/Meatballs-6.jpg" alt="meatball" />
