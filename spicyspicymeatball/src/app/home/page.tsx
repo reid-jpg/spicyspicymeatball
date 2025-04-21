@@ -13,8 +13,10 @@ export default async function HomePage() {
   })
   
   
-  return (<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  return (<div>
     <h1 className="bg-[#FF5032] font-serif text-7xl flex justify-center"> = Popular Recipes Now! = </h1>
+    <div className="divider divider-horizontal"></div>
+    <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {data.map((data,index) => (
       <div key={index} className="card w-96 bg-base-100 shadow-sm">
         <div className="card-body">
@@ -28,6 +30,8 @@ export default async function HomePage() {
         </div>
       </div>
     ))}
+    <AddButton></AddButton>
+  </div>
   </div>
     );
   }
