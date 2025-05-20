@@ -14,12 +14,12 @@ export default async function HomePage() {
   
   
   return (<div>
-    <h1 className="bg-[#FF5032] font-serif text-7xl flex justify-center"> = Popular Recipes Now! = </h1>
+    <h1 className="bg-[#FF5032] font-serif text-7xl flex justify-center">Popular Recipes Now</h1>
     <div className="divider divider-horizontal"></div>
-    <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div  className="bg-[#FA946E] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {data.map((data,index) => (
-      <div key={index} className="card w-96 bg-base-100 shadow-sm">
-        <div className="card-body">
+      <div key={index} className="bg-[#FFFFFF] rounded-lg shadow-md card w-96 p-2 ml-8 mt-4 bg-base-100">
+        <div className="card-body ">
           <h1 className="card-title">How to Make: {data.recipename}</h1>
           <h2>Ingredients:</h2>
           <p>{data.ingredients}</p>

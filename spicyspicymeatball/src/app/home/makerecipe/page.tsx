@@ -22,28 +22,36 @@ export default function UploadForm() {
   };
 
   return (
+    <div>
+    <h1 className="bg-[#FF5032] font-serif text-7xl flex justify-center">Upload Recipes</h1>
+    <div className="bg-[#FA946E]">
     <form onSubmit={handleSubmit}>
       <input
+        className="m-4 p-2"
         type="text"
         value={recipename}
         onChange={(e) => setRecipename(e.target.value)}
-        placeholder="recipename"
+        placeholder="Name ur recipe"
         required
       />
       <input
+        className="m-4 p-2"
         value={ingredients}
         onChange={(e) => setIngredients(e.target.value)}
-        placeholder="ingredients"
+        placeholder="What's the ingrediments"
         required
       />
       <input
-      value={directions}
-      onChange={(e) => setDirections(e.target.value)}
-      placeholder="directions"
-      required
+        className="m-4 p-2"
+        value={directions}
+        onChange={(e) => setDirections(e.target.value)}
+        placeholder="How do."
+        required
       />
-      <button type="submit">Upload</button>
+      <button className="m-4 p-2" type="submit">Upload</button>
     </form>
+    </div>
+    </div>
   );
 }
 
